@@ -1,0 +1,70 @@
+<div style="background-color:black;height: 100vh;">
+ <div class="container text-center">
+  <h1 class="text-center mb-4 text-light my-2"><i class="bi bi-person-arms-up"></i>Personal Budget Tracker</h1>
+  <nav class="mb-4">
+    <div class="btn-group" role="group">
+      <button class="btn custom-button" routerLink="/home"><i class="bi bi-house"></i>Home</button>
+      <button class="btn custom-button" routerLink="/dashboard"><i class="bi bi-palette"></i>Dashboard</button>
+      <button class="btn custom-button" routerLink="/expenses"><i class="bi bi-wallet"></i>Expenses</button>
+      <button class="btn custom-button" routerLink="/income"><i class="bi bi-cash-stack"></i>Income</button>
+      <button class="btn custom-button" routerLink="/categories"><i class="bi bi-clipboard2-check"></i>Categories</button>
+      <button class="btn custom-button" routerLink="/monthly-summary"><i class="bi bi-calendar-event"></i>Monthly Summary</button>
+    </div>
+  </nav>
+</div>
+
+<div class="container mt-5 income-tracker">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="text-center mb-4"><i class="bi bi-cash-stack">Income Tracker</i></h2>
+      <form [formGroup]="incomeForm" (ngSubmit)="addIncome()" class="mb-4">
+        
+       
+        <div class="mb-3">
+          <label for="source" class="form-label"><i class="bi bi-menu-button-wide me-2"></i>Source</label>
+          <input id="source" formControlName="source" class="form-control" required>
+        
+          <div *ngIf="incomeForm.get('source')?.invalid && incomeForm.get('source')?.touched" class="text-danger">
+            <i class="bi bi-shield-exclamation"></i> Source is required.
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="amount" class="form-label"><i class="bi bi-currency-rupee"></i>Amount</label>
+          <input type="number" id="amount" formControlName="amount" class="form-control" required>
+        
+          <div *ngIf="incomeForm.get('amount')?.invalid && incomeForm.get('amount')?.touched" class="text-danger">
+            <div *ngIf="incomeForm.get('amount')?.hasError('required')"><i class="bi bi-shield-exclamation"></i>Amount is required.</div>
+            <div *ngIf="incomeForm.get('amount')?.hasError('min')"><i class="bi bi-shield-exclamation"></i>Amount must be greater than 0.</div>
+          </div>
+        </div>
+
+       
+        <div class="mb-3">
+          <label for="date" class="form-label"><i class="bi bi-calendar2-date me-2"></i>Date</label>
+          <input type="date" id="date" formControlName="date" class="form-control" required>
+         
+          <div *ngIf="incomeForm.get('date')?.invalid && incomeForm.get('date')?.touched" class="text-danger">
+            <i class="bi bi-shield-exclamation"></i>Date is required.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="incomeForm.invalid">Add Income</button>
+      </form>
+    </div>
+  </div>
+  <h3 class="mt-5 text-light"><i class="bi bi-cash-coin">Income History</i></h3>
+  <div class="card mt-3">
+    <div class="card-body">
+      <ul class="list-group">
+        <li *ngFor="let income of incomeList" class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="bi bi-emoji-sunglasses">{{ income.date }}: ₹{{ income.amount }} - {{ income.source }}</i>
+          <button class="btn btn-danger btn-sm" (click)="deleteIncome(income.id)"><i class="bi bi-trash"></i>Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  

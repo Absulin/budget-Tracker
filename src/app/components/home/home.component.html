@@ -1,0 +1,28 @@
+<div style="background-color:black;height: 100vh;">
+<div class="container text-center color-indigo" >
+  <h1 class="text-center mb-4 text-white my-2"><i class="bi bi-person-arms-up"></i>Personal Budget Tracker </h1>
+  <nav class="mb-4">
+    <div class="btn-group" role="group">
+      <button class="btn custom-button" routerLink="/home"><i class="bi bi-house"></i>Home</button>
+      <button class="btn custom-button" routerLink="/dashboard"><i class="bi bi-palette"></i>Dashboard</button>
+      <button class="btn custom-button" routerLink="/expenses"><i class="bi bi-wallet"></i>Expenses</button>
+      <button class="btn custom-button" routerLink="/income"><i class="bi bi-cash-stack"></i>Income</button>
+      <button class="btn custom-button" routerLink="/categories"><i class="bi bi-clipboard2-check"></i>Categories</button>
+      <button class="btn custom-button" routerLink="/monthly-summary"><i class="bi bi-calendar-event"></i>Monthly Summary</button>
+    </div>
+  </nav>
+
+  <div id="expense-cards" class="row mt-4">
+    <h2 class="text-center mb-4 text-info"><i class="bi bi-wallet2">Expense Categories</i></h2>
+    <div class="col-12 d-flex flex-wrap justify-content-center">
+      <div class="card m-2 shadow-sm border-light custom-card" *ngFor="let expense of expenses" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title text-info"><i class="bi bi-wallet-fill"></i>{{ expense.category }}</h5>
+          <p class="card-text">Total Expense: <strong> ₹{{ expense.total }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

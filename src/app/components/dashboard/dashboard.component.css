@@ -1,0 +1,23 @@
+.custom-button {
+    background-color: #acb1b6c1;
+    color: white; 
+    border: none;
+    border-radius: 25px; 
+    padding: 10px 20px;
+    transition: background-color 0.3s; 
+}
+
+.custom-button:hover {
+    background-color: #808384d3; 
+}
+.custom-income {
+    background-color: #9cacbd; 
+  }
+  
+.custom-expenses {
+    background-color: #6c757d; 
+  }
+  
+.custom-balance {
+    background-color: #4c5157; 
+  }

@@ -1,0 +1,32 @@
+<div style="background-color:black;height: 100vh;">
+<div class="container text-center ">
+  <h1 class="text-center mb-4 text-light"><i class="bi bi-person-arms-up"></i>Personal Budget Tracker</h1>
+  <nav class="mb-4">
+    <div class="btn-group" role="group">
+      <button class="btn custom-button" routerLink="/home"><i class="bi bi-house"></i>Home</button>
+      <button class="btn custom-button" routerLink="/dashboard"><i class="bi bi-palette"></i>Dashboard</button>
+      <button class="btn custom-button" routerLink="/expenses"><i class="bi bi-wallet"></i>Expenses</button>
+      <button class="btn custom-button" routerLink="/income"><i class="bi bi-cash-stack"></i>Income</button>
+      <button class="btn custom-button" routerLink="/categories"><i class="bi bi-clipboard2-check"></i>Add Categories</button>
+      <button class="btn custom-button" routerLink="/monthly-summary"><i class="bi bi-calendar-event"></i>Monthly Summary</button>
+    </div>
+  </nav>
+
+<div class="monthly-summary">
+    <h2 class="text-info"><i class="bi bi-calendar3">Monthly Summary</i></h2>
+    <div class="text-light">
+      <h3>Total Income: ₹{{ totalIncome }}</h3>
+      <h3>Total Expenses: ₹{{ totalExpenses }}</h3>
+      <h3>Remaining Budget: ₹{{ remainingBudget }}</h3>
+    </div>
+    <!-- <div class="chart">
+      <canvas baseChart 
+              [datasets]="summaryChartData" 
+              [labels]="summaryChartLabels" 
+              [options]="summaryChartOptions" 
+              [legend]="true" 
+              [chartType]="'bar'">
+      </canvas>
+    </div> -->
+</div>
+</div>
